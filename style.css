@@ -1,0 +1,45 @@
+:root {
+  --black: #000000;
+  --white_gold: rgb(168, 156, 92, 1);
+  --white: #ffffff;
+}
+
+body {
+  font-family: "Exo", "Orbitron", "Roboto", "sans-serif";
+  font-size: 1.75rem;
+  line-height: 1.5;
+  color: var(--white_gold);
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin: -4rem 0 1.5rem 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--black);
+  color: var(--white);
+  border: 2px solid var(--white_gold);
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+  box-shadow: inset 0px 0px 8px var(--white), 0 0 15px var(--white);
+}
+
+h2 {
+  font-size: 3rem;
+  font-style: italic;
+  text-align: center;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
