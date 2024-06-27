@@ -110,26 +110,32 @@ function playRound() {
 // User prompted with how many times they played rock, paper, or scissors
 function finalScore() {
   alert(
-    `Thank you for a very enjoyable game:\n Wins: ${wins}\n  Losses: ${losses}\n    Ties: ${ties}`
+    `Thank you for a very enjoyable game:\n Wins: ${wins}\n Losses: ${losses}\n Ties: ${ties}`
   );
   alert(
-    `Dave played:\n Rock: ${davePlayed.R}\n  Paper: ${davePlayed.P}\n   Scissors: ${davePlayed.S}`
+    `Dave played:\n Rock: ${davePlayed.R}\n Paper: ${davePlayed.P}\n Scissors: ${davePlayed.S}`
   );
 }
 
 // User prompted with option to play again
 // Had to add the event listener to have the game start after the page fully loads since I put the transition times in.
 document.addEventListener("DOMContentLoaded", function () {
-  let anotherRound = true;
-  while (anotherRound) {
-    playRound();
-    anotherRound = confirm("Another round, Dave?");
-  }
+  setTimeout(() => {
+    document.querySelector("body").style.opacity = 1;
 
-  // Show final score when the user decides to 'cancel' instead of play again
-  finalScore();
+    alert("Hello, Dave.  Ready to Play Rock, Paper, Scissors?");
+
+    let anotherRound = true;
+    while (anotherRound) {
+      playRound();
+      anotherRound = confirm("Another round, Dave?");
+    }
+
+    finalScore();
+  }, 500);
+
+  const refreshButton = document.getElementById("refresh");
+  refreshButton.addEventListener("click", function () {
+    location.reload();
+  });
 });
-
-// Considerations
-
-// would ternary operators in if/else statements help DRY coding?
