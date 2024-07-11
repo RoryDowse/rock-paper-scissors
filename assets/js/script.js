@@ -17,6 +17,36 @@
 
 // Play variables declared for Dave Bowman, R, P, S (const variables) with score board set to 0
 // Outcomes variables declared, i.e. W, L, T (const)
+document.addEventListener("DOMContentLoaded", (event) => {
+  const audioElement = document.getElementById("audio-element");
+
+  document.body.addEventListener(
+    "click",
+    () => {
+      // Play audio with a delay
+      setTimeout(() => {
+        audioElement.play().catch((error) => {
+          console.error("Audio play was prevented:", error);
+        });
+      }, 500); // Delay audio play by 0.5 seconds
+
+      // Show alert with a delay after audio play
+      setTimeout(() => {
+        alert("Are you ready to play Rock, Paper, Scissors?");
+
+        let anotherRound = true;
+        while (anotherRound) {
+          playRound();
+          anotherRound = confirm("Another round, Dave?");
+        }
+
+        finalScore();
+      }, 2500); // Delay alert by 2.5 seconds to match the audio play delay
+    },
+    { once: true }
+  ); // Ensure the click event listener is only triggered once
+});
+
 let wins = 0;
 let losses = 0;
 let ties = 0;
@@ -116,26 +146,3 @@ function finalScore() {
     `Dave played:\n Rock: ${davePlayed.R}\n Paper: ${davePlayed.P}\n Scissors: ${davePlayed.S}`
   );
 }
-
-// User prompted with option to play again
-// Had to add the event listener to have the game start after the page fully loads since I put the transition times in.
-document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(() => {
-    document.querySelector("body").style.opacity = 1;
-
-    alert("Hello, Dave.  Ready to Play Rock, Paper, Scissors?");
-
-    let anotherRound = true;
-    while (anotherRound) {
-      playRound();
-      anotherRound = confirm("Another round, Dave?");
-    }
-
-    finalScore();
-  }, 500);
-
-  const refreshButton = document.getElementById("refresh");
-  refreshButton.addEventListener("click", function () {
-    location.reload();
-  });
-});
