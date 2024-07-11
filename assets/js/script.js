@@ -23,6 +23,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
   document.body.addEventListener(
     "click",
     () => {
+      // remove header intro text and display HAL
+      const removeHAL = document.getElementById("HAL");
+      const headingOne = document.getElementById("intro-1");
+      const headingTwo = document.getElementById("intro-2");
+      removeHAL.removeAttribute("id");
+      headingOne.remove();
+      headingTwo.remove();
+
       // Play audio with a delay
       setTimeout(() => {
         audioElement.play().catch((error) => {

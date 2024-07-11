@@ -23,6 +23,19 @@ main {
   justify-content: center;
 }
 
+h1 {
+  text-align: center;
+  margin: 5%;
+}
+
+h2 {
+  color: var(--red);
+}
+
+#HAL {
+  display: none;
+}
+
 section {
   font-size: 3.5vw;
   margin: 0;
@@ -34,7 +47,6 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: radial-gradient(circle, rgba(255, 0, 0, 0.8), transparent 70%); */
   background: rgb(255, 153, 0);
   background: radial-gradient(
     circle,
@@ -46,10 +58,11 @@ section {
   box-shadow: 0 0 1.2vw white;
 }
 
-h2 {
-  color: var(--white_gold);
-  font-size: 1.8vw;
-  margin-top: 2vw;
-  font-style: italic;
-  max-width: 49vw;
+@media (max-width: 480px) {
+  section {
+    width: 80vw;
+    height: 80vw;
+    max-width: 80vw;
+    max-height: 80vw;
+  }
 }
